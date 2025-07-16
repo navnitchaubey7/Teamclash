@@ -1,0 +1,19 @@
+/* CardItem.css */
+.card-item {
+  background: #e6f0ff;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-item.checked {
+  text-decoration: line-through;
+  background-color: #d4edda;
+}
+.points {
+  color: #007bff;
+  font-weight: bold;
+}

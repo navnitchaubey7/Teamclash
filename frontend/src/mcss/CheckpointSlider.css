@@ -1,0 +1,38 @@
+/* src/components/CheckpointSlider.css */
+.checkpoint-container {
+  position: relative;
+  margin: 20px auto;
+  width: 90%;
+  height: 60px;
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background-color: #999;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #4caf50;
+}
+
+.avatar {
+  position: absolute;
+  top: -25px;
+  font-size: 24px;
+  transition: left 0.5s;
+}

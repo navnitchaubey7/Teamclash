@@ -1,0 +1,446 @@
+.bg-wrapper {
+  background-image: url('../../public/img/battleground.jpg');
+  /* path correct hona chahiye */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  /* align-items: center; content ko vertically center karega */
+  justify-content: center;
+  color: white;
+}
+
+.content-inside {
+  text-align: center;
+}
+
+.home_header {
+  position: relative;
+  height: 15%;
+  font-size: 10vh;
+  font-family: 'Times New Roman', Times, serif;
+  color: aquamarine;
+  z-index: 1;
+  /* text should be on top */
+  overflow: hidden;
+  animation: fadeInSlide 1s ease-out forwards;
+}
+
+/* Add overlay background blur */
+.home_header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/img/battleground.jpg');
+  /* path correct hona chahiye */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(50%) contrast(80%);
+  z-index: -1;
+  /* keep it behind the text */
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.login-header {
+  color: white;
+  text-align: left;
+}
+
+.login-header {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.login-box {
+  margin-top: 15px;
+}
+
+.login_header {
+  position: relative;
+  height: 40%;
+  width: 35vw;
+  font-size: 10vh;
+  font-family: 'Times New Roman', Times, serif;
+  color: aquamarine;
+  z-index: 1;
+  /* text should be on top */
+  overflow: hidden;
+  animation: fadeInSlide 1s ease-out forwards;
+  margin-left: 25%;
+}
+
+.login_header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/img/battleground.jpg');
+  /* path correct hona chahiye */
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(50%) contrast(90%);
+  z-index: -1;
+  /* keep it behind the text */
+}
+
+.show_login_button {
+  position: relative;
+  height: 50px;
+  width: 170px;
+  font-size: 18px;
+  font-family: 'Times New Roman', Times, serif;
+  color: white;
+  background-color: teal;
+  border: none;
+  border-radius: 10px;
+  z-index: 1;
+  overflow: hidden;
+  animation: fadeIncircle 0.8s ease-in-out backwards;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+  /* Soft shadow */
+  text-shadow: 1px 1px 2px black;
+  /* For better readability */
+}
+
+.show_login_button:hover {
+  background-color: rgb(11, 192, 68);
+  transform: scale(1.05);
+  /* Subtle zoom */
+  box-shadow: 0 6px 20px rgba(0, 255, 128, 0.4);
+}
+
+.show_login_button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/img/battleground.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(10px) brightness(50%) contrast(85%);
+  z-index: -1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.show_login_button:hover::before {
+  opacity: 1;
+  /* Slightly more visible on hover */
+}
+
+@keyframes fadeIncircle {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+.register_header {
+  position: relative;
+  width: 40vw;
+  min-height: 300px;
+  /* Fixed min height to hold content */
+  font-size: 4.5vh;
+  /* Responsive and controlled */
+  font-family: 'Times New Roman', Times, serif;
+  color: aquamarine;
+  z-index: 1;
+  overflow: hidden;
+  animation: fadeInSlide 1s ease-out forwards;
+  margin: 5% auto;
+  /* Center align horizontally */
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  backdrop-filter: blur(3px);
+  /* Optional glass effect */
+  box-shadow: 0 0 15px rgba(0, 255, 170, 0.3);
+  /* Glow effect */
+}
+
+.register_header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/img/battleground.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(50%) contrast(90%);
+  z-index: -1;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #212529;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  z-index: 999;
+}
+
+.create_room_header {
+  font-size: 4vh;
+  /* 20vh nahi bro, 4-5vh kaafi hai */
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: rgb(12, 48, 192);
+  position: relative;
+  width: 35vw;
+  z-index: 1;
+  margin-left: 25%;
+  animation: fadeInSlide 1s ease-out forwards;
+  padding: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.create_room_header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../../public/img/battleground.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(5px) brightness(50%) contrast(90%);
+  z-index: -1;
+
+  .btn-toggle {
+    z-index: 9999;
+    position: relative;
+  }
+
+}
+
+.playground-wrapper {
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.top-nav h4 {
+  font-weight: bold;
+}
+
+.horizontal-menu .nav-link {
+  font-weight: 500;
+  color: #495057;
+}
+
+.horizontal-menu .nav-link.active {
+  color: #0d6efd;
+  border-bottom: 2px solid #0d6efd;
+}
+
+.bg-blurred-battle {
+  position: relative;
+  background-image: url('../../public/img/battleground.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(60%) contrast(85%);
+  background-blend-mode: overlay;
+  background-color: rgba(30, 58, 138, 0.6);
+  /* blue overlay */
+}
+
+
+/* chatbox css */
+.chat-box-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 30px auto;
+  background: linear-gradient(145deg, #1e1e2f, #1a1a26);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #333;
+}
+
+.chat-messages {
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scroll-behavior: smooth;
+}
+
+.chat-bubble {
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 80%;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.5;
+  word-break: break-word;
+  background: #2c2c40;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chat-me {
+  align-self: flex-end;
+  background: #0f5132;
+  border-bottom-right-radius: 0;
+}
+
+.chat-other {
+  align-self: flex-start;
+  background: #212529;
+  border-bottom-left-radius: 0;
+}
+
+.chat-username {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.chat-text {
+  font-size: 15px;
+}
+
+.chat-time {
+  font-size: 10px;
+  color: #bbb;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.chat-input-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  background: #f0f2f5;
+  color: #000;
+}
+
+.chat-send-btn {
+  padding: 10px 18px;
+  background: #8f9811;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.chat-send-btn:hover {
+  background: #198754;
+}
+
+
+/* model files  */
+.modal-header-outer-div {
+  background-color: #4f4c4c;
+  color: #000;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+.modal-header-inner-div {
+  background-color: #676099;
+  color: #000;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+.document-box {
+  background-color: #8ab0d7;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+
+.document-box:hover {
+  box-shadow: 0 0 20px rgba(208, 1, 255, 0.3);
+  background-color: #e9f5ff;
+}
+
+.model-chat-box-outer-div {
+  background-color: #ce7fe9;
+  border: 1px solid #dee2e6;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;  
+  align-items: center;
+}
+
+.document-link {
+  text-decoration: none;
+  color: #291616;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-icon {
+  font-size: 22px;
+  color: #0d6efd;
+}
+
+.file-name {
+  font-weight: 500;
+  font-size: 16px;
+}
