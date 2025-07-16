@@ -4,6 +4,7 @@ import { Row, Col, Form, Button, Modal, CardHeader } from 'react-bootstrap';
 import { Socket } from '../socket';
 import axios from 'axios';
 import { FaFileAlt } from 'react-icons/fa'; // FontAwesome file icon
+import * as Common from "../components/Common";
 
 const initialColumns = {
   todo: [],
@@ -31,7 +32,7 @@ const GameBoard = () => {
 
   const fetchCards = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/cards/room/${roomId}`);
+      const res = await axios.get(Common.apiGetCardDratil + `/${roomId}`);
       const cards = res.data.cards;
       const newCols = { todo: [], doing: [], done: [] };
       cards.forEach(card => {

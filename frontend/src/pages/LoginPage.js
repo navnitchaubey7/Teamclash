@@ -4,7 +4,7 @@ import { Row, Col, Container, Button, Form } from 'react-bootstrap';
 import '../mcss/Home.css';
 import $ from "jquery";
 import { useNavigate } from 'react-router-dom';
-import { useTransition } from 'react';
+import * as Common from "../components/Common"
 
 
 function LoginPage() {
@@ -24,8 +24,8 @@ function LoginPage() {
       password: password
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', obj);
-      
+      const res = await axios.post(Common.apiLoginPath, obj);
+
       alert("Login Success ✅");
       navigate("/profile");
       sessionStorage.setItem("user_id", res.data.user.user_id);

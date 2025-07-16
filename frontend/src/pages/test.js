@@ -4,7 +4,7 @@ import { Row, Col, Container, Button, Form } from 'react-bootstrap';
 import '../mcss/Home.css';
 import $ from "jquery";
 import { useNavigate } from 'react-router-dom';
-
+import * as Common from "../components/Common";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -25,7 +25,7 @@ function LoginPage() {
     }
     $(".loader").show();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', obj);
+      const res = await axios.post(Common.apiLoginPath, obj);
       alert("Login Success ✅");
       navigate("/profile");
       localStorage.setItem("token", res.data.token);
@@ -192,61 +192,61 @@ export default Sidebar;
 
 
 //***********************************************************************************************CHATBOX  */
-  // return (
-  //   <Row>
-  //     <Col md={4}>
-  //       <h6>🔍 Search Users</h6>
-  //       <InputGroup>
-  //         <Form.Control
-  //           placeholder="Search user by name"
-  //           value={searchTerm}
-  //           onChange={(e) => setSearchTerm(e.target.value)}
-  //         />
-  //         <Button onClick={searchUsers}>Search</Button>
-  //       </InputGroup>
-  //       <PendingRequests userId={userId} />
-  //       <ListGroup className='mt-2'>
-  //         {searchResults.map((user) => (
-  //           <ListGroup.Item key={user._id}>
-  //             {user.username} <Button size='sm' onClick={() => sendFriendRequest(user._id)}>➕ Add</Button>
-  //           </ListGroup.Item>
-  //         ))}
-  //       </ListGroup>
+// return (
+//   <Row>
+//     <Col md={4}>
+//       <h6>🔍 Search Users</h6>
+//       <InputGroup>
+//         <Form.Control
+//           placeholder="Search user by name"
+//           value={searchTerm}
+//           onChange={(e) => setSearchTerm(e.target.value)}
+//         />
+//         <Button onClick={searchUsers}>Search</Button>
+//       </InputGroup>
+//       <PendingRequests userId={userId} />
+//       <ListGroup className='mt-2'>
+//         {searchResults.map((user) => (
+//           <ListGroup.Item key={user._id}>
+//             {user.username} <Button size='sm' onClick={() => sendFriendRequest(user._id)}>➕ Add</Button>
+//           </ListGroup.Item>
+//         ))}
+//       </ListGroup>
 
-  //       <h6 className='mt-4'>👥 Your Friends</h6>
-  //       <ListGroup>
-  //         {friends.map((friend) => (
-  //           <ListGroup.Item
-  //             key={friend._id}
-  //             active={selectedFriend?._id === friend._id}
-  //             onClick={() => {
-  //               setSelectedFriend(friend);
-  //               loadMessages(friend._id);
-  //             }}
-  //           >
-  //             {friend.name}
-  //           </ListGroup.Item>
-  //         ))}
-  //       </ListGroup>
-  //     </Col>
+//       <h6 className='mt-4'>👥 Your Friends</h6>
+//       <ListGroup>
+//         {friends.map((friend) => (
+//           <ListGroup.Item
+//             key={friend._id}
+//             active={selectedFriend?._id === friend._id}
+//             onClick={() => {
+//               setSelectedFriend(friend);
+//               loadMessages(friend._id);
+//             }}
+//           >
+//             {friend.name}
+//           </ListGroup.Item>
+//         ))}
+//       </ListGroup>
+//     </Col>
 
-  //     <Col md={8}>
-  //       <div className='chat-window bg-light p-3 rounded' style={{ height: '400px', overflowY: 'scroll' }}>
-  //         {messages.map((msg, idx) => (
-  //           <div key={idx} className={`mb-2 ${msg.from === userId ? 'text-end' : 'text-start'}`}>
-  //             <span className='px-2 py-1 rounded bg-secondary text-white'>{msg.text}</span>
-  //           </div>
-  //         ))}
-  //       </div>
-  //       <InputGroup className='mt-2'>
-  //         <Form.Control
-  //           placeholder='Type a message...'
-  //           value={newMsg}
-  //           onChange={(e) => setNewMsg(e.target.value)}
-  //           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
-  //         />
-  //         <Button onClick={sendMessage}>Send</Button>
-  //       </InputGroup>
-  //     </Col>
-  //   </Row>
-  // );
+//     <Col md={8}>
+//       <div className='chat-window bg-light p-3 rounded' style={{ height: '400px', overflowY: 'scroll' }}>
+//         {messages.map((msg, idx) => (
+//           <div key={idx} className={`mb-2 ${msg.from === userId ? 'text-end' : 'text-start'}`}>
+//             <span className='px-2 py-1 rounded bg-secondary text-white'>{msg.text}</span>
+//           </div>
+//         ))}
+//       </div>
+//       <InputGroup className='mt-2'>
+//         <Form.Control
+//           placeholder='Type a message...'
+//           value={newMsg}
+//           onChange={(e) => setNewMsg(e.target.value)}
+//           onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+//         />
+//         <Button onClick={sendMessage}>Send</Button>
+//       </InputGroup>
+//     </Col>
+//   </Row>
+// );
