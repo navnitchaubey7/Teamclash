@@ -25,7 +25,6 @@ function LoginPage() {
     }
     try {
       const res = await axios.post('http://localhost:5000/api/auth/login', obj);
-      // const res = await axios.post('https://3f4f-45-117-182-42.ngrok-free.app/api/auth/login', obj);
       
       alert("Login Success ✅");
       navigate("/profile");
