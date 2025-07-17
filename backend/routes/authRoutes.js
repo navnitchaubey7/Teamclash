@@ -60,7 +60,7 @@ router.get("/google",passport.authenticate("google", { scope: ["profile", "email
 router.get("/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
-    res.redirect("http://localhost:3000/profile"); // ✅ Redirect to frontend
+    res.redirect("https://teamclash.onrender.com/profile"); // ✅ Redirect to frontend
   }
 );
 
