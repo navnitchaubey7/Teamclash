@@ -1,3 +1,31 @@
-const apiBasePath = "http://localhost:5000";
+export const apiBasePath = "http://localhost:5000";
 export const apiLoginPath = apiBasePath + "/api/auth/login";
 export const apiGetCardDratil = apiBasePath + "/api/cards/room";
+export const apiFetchHistoryByRoomId = apiBasePath + "/api/chat/room";
+export const apifetchsticker = apiBasePath + "/api/stickers";
+export const apifetchfriends = apiBasePath + "/api/friends/friends";
+export const apisearchusers = apiBasePath + "/api/friends/search";
+export const apisendfriendrequest = apiBasePath + "/api/friends/request";
+export const apiloadmessages = apiBasePath + "/api/messages";
+export const apinavbar = apiBasePath + "/api/auth/navbar";
+export const apicreateroom = apiBasePath + "/api/rooms/create";
+
+//*******************************         GAMEBOARD API          ************************ */
+export const apiaddcard = apiBasePath + "/api/cards/addcard";
+export const apideletecard = apiBasePath + "/api/cards/deletecard";
+export const apiupdatecardstate = apiBasePath + "/api/cards/update";
+export const getuploadedfiles = apiBasePath + "/api/upload/getByCard";
+export const apiupdatedesc = apiBasePath + "/api/cards/update-description";
+export const apiupload = apiBasePath + "/api/upload";
+export const uploadapi = apiBasePath + "/upload";
+export const apiregisteruser = apiBasePath + "/api/auth/register";
+export const forgetPassword = apiBasePath + "/api/auth/forgetpassotp";
+export const verifyOtp = apiBasePath + "/api/auth/verifyotp";
+export const updatePassword = apiBasePath + "/api/auth/updatepassfinal";
+export const loginviagoogle = apiBasePath + "/api/auth/google";
+export const getPendingFriendRequest = apiBasePath + "/api/friends/requests";
+export const acceptFriendRequest = apiBasePath + "/api/friends/accept";
+export const apigetroominfo = apiBasePath + "/api/rooms/getroominfo";
+export const apijoinroom = apiBasePath + "/api/rooms/join";
+export const apiprofilepageauth = apiBasePath + "/api/auth/profile";
+export const downloadreport = apiBasePath + "/api/report/download-report";

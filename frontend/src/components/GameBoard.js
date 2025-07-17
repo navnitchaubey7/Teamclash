@@ -75,7 +75,7 @@ const GameBoard = () => {
   const handleAddCard = async () => {
     if (!newCard.trim()) return;
 
-    const res = await axios.post('http://localhost:5000/api/cards/addcard', {
+    const res = await axios.post(Common.apiaddcard, {
       text: newCard,
       roomId,
       userId,
@@ -90,7 +90,7 @@ const GameBoard = () => {
 
 
   const handleDelete = async (colKey, cardId) => {
-    await axios.delete(`http://localhost:5000/api/cards/deletecard/${cardId}`);
+    await axios.delete(Common.apideletecard + `/${cardId}`);
     setColumns(prev => ({
       ...prev,
       [colKey]: prev[colKey].filter(c => c._id !== cardId),
@@ -120,7 +120,7 @@ const GameBoard = () => {
       [targetCol]: updatedTarget,
     });
 
-    axios.put(`http://localhost:5000/api/cards/update/${draggedCard._id}`, { status: targetCol });
+    axios.put(Common.apiupdatecardstate + `/${draggedCard._id}`, { status: targetCol });
     setDragInfo(null);
   };
 
@@ -129,7 +129,7 @@ const GameBoard = () => {
   //***************************************************************************  MODAL BOX OPERATIONS   ***************************************************
   const handleCardDetail = (card) => {
     setModalScrMode("D");
-    axios.get(`http://localhost:5000/api/upload/getByCard/${card._id}`)
+    axios.get(Common.getuploadedfiles + `/${card._id}`)
       .then(res => setUploadedFiles(res.data.files))
       .catch(err => console.error("Fetching uploaded files failed", err));
     setCardId(card._id);
@@ -138,7 +138,7 @@ const GameBoard = () => {
   }
   const saveModalData = async () => {
     try {
-      await axios.patch(`http://localhost:5000/api/cards/update-description/${cardId}`, {
+      await axios.patch(Common.apiupdatedesc + `/${cardId}`, {
         description: modalText
       });
       alert("Description saved");
@@ -160,7 +160,7 @@ const GameBoard = () => {
     formData.append("uploadedBy", userId);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/upload", formData, {
+      const res = await axios.post(Common.apiupload, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -264,7 +264,7 @@ const GameBoard = () => {
               {modalScrMode === "U" &&
                 uploadedFiles.map(file => (
                   <div key={file._id} className="document-box">
-                    <a href={`http://localhost:5000/uploads/${file.fileName}`} target="_blank" rel="noopener noreferrer" className="document-link">
+                    <a href={Common.uploadapi + `/${file.fileName}`} target="_blank" rel="noopener noreferrer" className="document-link">
                       <FaFileAlt className="file-icon" />
                       <span className="file-name">{file.originalName}</span>
                     </a>

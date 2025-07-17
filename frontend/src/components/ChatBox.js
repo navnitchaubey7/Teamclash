@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Socket } from '../socket';
 import '../mcss/Home.css';
 import axios from 'axios';
+import * as Common from "../components/Common";
 
 const ChatBox = ({ roomId, userName, userId }) => {
     const chatEndRef = useRef(null);
@@ -12,7 +13,7 @@ const ChatBox = ({ roomId, userName, userId }) => {
         const container = document.querySelector('.chat-messages');
         container.scrollTop = container.scrollHeight;
         const fetchHistory = async () => {
-            const res = await axios.get(`http://localhost:5000/api/chat/room/${roomId}`);
+            const res = await axios.get(Common.apiFetchHistoryByRoomId + `/${roomId}`);
             if (res.data.success) {
                 setMessages(res.data.messages);
             }

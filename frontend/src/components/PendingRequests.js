@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button, ListGroup } from 'react-bootstrap';
+import * as Common from "../components/Common"
 
 const PendingRequests = ({ userId }) => {
   const [requests, setRequests] = useState([]);
 
   const fetchRequests = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/friends/requests/${userId}`);
+      const res = await axios.get(Common.getPendingFriendRequest + `/${userId}`);
       setRequests(res.data.requests);
     } catch (err) {
       console.error("Error fetching requests", err);
@@ -20,7 +21,7 @@ const PendingRequests = ({ userId }) => {
 
   const handleAccept = async (requestId) => {
     try {
-      await axios.patch(`http://localhost:5000/api/friends/accept/${requestId}`);
+      await axios.patch(Common.acceptFriendRequest`/${requestId}`);
       alert("Accepted ✅");
       fetchRequests(); // Refresh list after accepting
     } catch (err) {
