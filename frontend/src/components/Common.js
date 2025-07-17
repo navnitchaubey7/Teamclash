@@ -1,4 +1,5 @@
-export const apiBasePath = "http://localhost:5000";
+// export const apiBasePath = "http://localhost:5000";
+export const apiBasePath = "https://teamclash-backend.onrender.com"
 export const apiLoginPath = apiBasePath + "/api/auth/login";
 export const apiGetCardDratil = apiBasePath + "/api/cards/room";
 export const apiFetchHistoryByRoomId = apiBasePath + "/api/chat/room";
