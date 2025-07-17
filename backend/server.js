@@ -93,7 +93,7 @@ io.on('connection', (socket) => {
 
 
 // Serve React in production
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'development') {
   const buildPath = path.join(__dirname, '../frontend/build');
   app.use(express.static(buildPath));
 
