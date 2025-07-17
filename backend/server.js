@@ -53,14 +53,16 @@ app.use('/api/friends', require('./routes/friendRoutes'));
 app.use('/api/messages', require('./routes/messageRoutes'));
 
 //*****************************************************************************  GET THE UPLOADED FILES  ************
-app.use('/uploads', express.static(path.join(__dirname,'UploadedFiles')));
+app.use('/uploads', express.static(path.join(__dirname, 'UploadedFiles')));
 //*******************************************************************************************************************
 app.use('/api/upload', uploadRoute);
 
 
 // 🔌 Redis Pub/Sub Clients
-const pubClient = createClient({ url: 'redis://redis:6379' });
+// const pubClient = createClient({ url: 'redis://redis:6379' });
+const pubClient = createClient({ url: process.env.REDIS_URL });
 // const pubClient = createClient({ url: 'redis://localhost:6379' });
+
 const subClient = pubClient.duplicate();
 
 // ⚡️ Socket.IO Setup
