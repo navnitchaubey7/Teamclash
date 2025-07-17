@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Socket } from '../socket';
 import PendingRequests from './PendingRequests';
 import EmojiPicker from 'emoji-picker-react';
+import * as Common from "../components/Common"
 
 
 const ChatBoxx = () => {
@@ -29,29 +30,29 @@ const ChatBoxx = () => {
   }, [selectedFriend]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/stickers')
+    fetch(Common.apifetchsticker)
       .then(res => res.json())
       .then(data => setStickers(data));
     fetchFriends();
   }, []);
 
   const fetchFriends = async () => {
-    const res = await axios.get(`http://localhost:5000/api/friends/friends/${userId}`);
+    const res = await axios.get(Common.apifetchfriends + `/${userId}`);
     setFriends(res.data.friends);
   };
 
   const searchUsers = async () => {
-    const res = await axios.get(`http://localhost:5000/api/friends/search/${searchTerm}`);
+    const res = await axios.get(Common.apisearchusers + `/${searchTerm}`);
     setSearchResults(res.data);
   };
 
   const sendFriendRequest = async (toId) => {
-    await axios.post('http://localhost:5000/api/friends/request', { from: userId, to: toId });
+    await axios.post(Common.apisendfriendrequest, { from: userId, to: toId });
     alert('Friend request sent!');
   };
 
   const loadMessages = async (friendId) => {
-    const res = await axios.get(`http://localhost:5000/api/messages/${userId}/${friendId}`);
+    const res = await axios.get(Common.apiloadmessages + `/${userId}/${friendId}`);
     setMessages(res.data);
   };
 

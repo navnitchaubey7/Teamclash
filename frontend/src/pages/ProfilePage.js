@@ -4,18 +4,17 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
-import { Nav } from "react-bootstrap";
 import CreateRoom from "./CreateRoom";
 import JoinRoom from "./JoinRoom";
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSidebar } from '../redux/sidebarSlice';
 import { useNavigate } from "react-router-dom";
+import * as Common from "../components/Common"
 
 
 const ProfilePage = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState(null);
-  const [error, setError] = useState("");
   const { isVisible: sidebarVisible, createRoom: newRoomVisible, enterRoom: enterRoomVisible } = useSelector((state) => state.sidebar);
 
   const dispatch = useDispatch();
@@ -30,7 +29,7 @@ const ProfilePage = () => {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/profile", {
+        const res = await axios.get(Common.apiprofilepageauth, {
           headers: {
             Authorization: token,
           },
@@ -66,7 +65,7 @@ const ProfilePage = () => {
         >
           {/* DON'T REMOVE THIS LINE WORK WHEN WE GOT SUBSCRIPTION OF AI */}
           {/* <button className="btn btn-success mt-2" onClick={generativeAi}>Check AI</button> */}
-          <a href="http://localhost:5000/api/report/download-report" download><button>📥 Download Progress Report</button></a>
+          <a href={Common.downloadreport} download><button>📥 Download Progress Report</button></a>
           {newRoomVisible && <div className='create_room_header'><CreateRoom /></div>}
           {enterRoomVisible && <div className='create_room_header'><JoinRoom /></div>}
         </div>

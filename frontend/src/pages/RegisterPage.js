@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Container, Row, Col } from 'react-bootstrap';
 import '../mcss/Home.css';
 import $ from 'jquery';
+import * as Common from "../components/Common";
 
 function RegisterPage() {
   const [form, setForm] = useState({ name: '', email: '', password: '' });
@@ -15,7 +16,7 @@ function RegisterPage() {
     $(".loader").show();
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', form);
+      const res = await axios.post(Common.apiregisteruser, form);
       alert("Registration Success ✅");
     } catch (err) {
       alert(err.response?.data?.message || 'Registration failed ❌');
@@ -74,7 +75,7 @@ function RegisterPage() {
             </Row>
 
             <Row md={6} className="justify-content-center">
-                <button type="submit" className="btn btn-success">Register</button>
+              <button type="submit" className="btn btn-success">Register</button>
             </Row>
           </form>
         </div>

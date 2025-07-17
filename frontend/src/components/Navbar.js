@@ -5,6 +5,7 @@ import axios from 'axios';
 import { FaBars } from 'react-icons/fa'; // 👈 hamburger icon
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../redux/sidebarSlice';
+import * as Common from "../components/Common";
 
 const TopNavbar = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const TopNavbar = () => {
       }
 
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/navbar", {
+        const res = await axios.get(Common.apinavbar, {
           headers: {
             Authorization: token,
           },

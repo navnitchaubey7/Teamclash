@@ -4,7 +4,7 @@ import { Row, Col, Container, Button, Form } from 'react-bootstrap';
 import '../mcss/Home.css';
 import $ from "jquery";
 import { useNavigate } from 'react-router-dom';
-import { useTransition } from 'react';
+import * as Common from "../components/Common"
 
 
 function LoginPage() {
@@ -24,8 +24,8 @@ function LoginPage() {
       password: password
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', obj);
-      
+      const res = await axios.post(Common.apiLoginPath, obj);
+
       alert("Login Success ✅");
       navigate("/profile");
       sessionStorage.setItem("user_id", res.data.user.user_id);
@@ -46,7 +46,7 @@ function LoginPage() {
       email: email
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/forgetpassotp', obj);
+      const res = await axios.post(Common.forgetPassword, obj);
       alert("Password Reset Successfully ✅");
       setShowForgetPassbox(true);
     } catch (err) {
@@ -59,7 +59,7 @@ function LoginPage() {
       password: otp
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/verifyotp', obj);
+      const res = await axios.post(Common.verifyOtp, obj);
       console.log(res.data.token)
       if (res.data.token === "") {
         setShowOldNewPass(false);
@@ -80,7 +80,7 @@ function LoginPage() {
         password: newPass
       }
       try {
-        const res = await axios.post('http://localhost:5000/api/auth/updatepassfinal', obj);
+        const res = await axios.post(Common.updatePassword, obj);
         alert("Password Reset Successfully. ✅");
         setShowOldNewPass(true);
         setShowForgetPassbox(true);
@@ -91,7 +91,7 @@ function LoginPage() {
     }
   }
   const handleGoogleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = Common.loginviagoogle;
   };
   return (
     <div>

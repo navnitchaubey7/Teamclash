@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Badge, Button, Col, Container, Form, Modal, Row, Tab, Table, Tabs } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import * as Common from "../components/Common";
 
 const CreateRoom = () => {
   const navigate = useNavigate();
@@ -13,24 +14,16 @@ const CreateRoom = () => {
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:5000/api/rooms/create",
-        {
-          roomName,
-          roomPassword,
-        },
-        {
-          headers: { Authorization: token },
-        }
-      );
+        Common.apicreateroom, { roomName, roomPassword, }, { headers: { Authorization: token }, });
 
       alert(res.data.message);
-      if(res.data.status==="1"){
+      if (res.data.status === "1") {
         sessionStorage.setItem("roomname", roomName);
         sessionStorage.setItem("room_id", res.data.room._id);
         sessionStorage.setItem("room_created_by", res.data.room.createdby);
         navigate(`/playground`, { state: { isAdmin: res.data.room.is_room_admin } });
       }
-      
+
     } catch (err) {
       console.error(err);
       alert("Failed to create room.");

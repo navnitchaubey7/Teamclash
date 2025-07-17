@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Badge, Button, Col, Container, Form, Modal, Row, Tab, Table, Tabs } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import * as Common from "../components/Common"
 
 const JoinRoom = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const JoinRoom = () => {
     try {
       const token = localStorage.getItem('token');
 
-      const res = await axios.post('http://localhost:5000/api/rooms/join', { roomName, roomPassword, userId: sessionStorage.getItem("user_id") }, { headers: { Authorization: token } });
+      const res = await axios.post(Common.apijoinroom, { roomName, roomPassword, userId: sessionStorage.getItem("user_id") }, { headers: { Authorization: token } });
       alert(res.data.message);
       sessionStorage.setItem("roomname", roomName);
       sessionStorage.setItem("room_id", res.data.room._id);

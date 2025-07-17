@@ -9,7 +9,7 @@ import ChatBox from '../components/ChatBox';
 import { Socket } from '../socket';
 import OnlineUsersDropdown from '../components/OnlineUsers';
 import { useLocation } from 'react-router-dom';
-import ChatBoxx from '../components/ChatBoxx';
+import * as Common from "../components/Common"
 const Loader = () => {
     return (
         <div style={{ textAlign: 'center', marginTop: '50px' }}>
@@ -37,7 +37,7 @@ const Playground = () => {
         const fetchRoomInfo = async () => {
             try {
                 const res = await axios.post(
-                    'http://localhost:5000/api/rooms/getroominfo', { id: room_id }, { headers: { Authorization: token } })
+                    Common.apigetroominfo, { id: room_id }, { headers: { Authorization: token } })
 
                 console.log("Room Info:", res.data.room);
             } catch (err) {
@@ -112,7 +112,7 @@ const Playground = () => {
                                 {/* ************************************************************************************************************************** */}
                             </div>
                         </Col>
-                    </> 
+                    </>
                 )}
 
                 {activeTab === 'players' && (
