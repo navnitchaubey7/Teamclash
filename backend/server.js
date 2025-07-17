@@ -59,8 +59,8 @@ app.use('/api/upload', uploadRoute);
 
 
 // 🔌 Redis Pub/Sub Clients
-// const pubClient = createClient({ url: 'redis://redis:6379' });
-const pubClient = createClient({ url: 'redis://localhost:6379' });
+const pubClient = createClient({ url: 'redis://redis:6379' });
+// const pubClient = createClient({ url: 'redis://localhost:6379' });
 const subClient = pubClient.duplicate();
 
 // ⚡️ Socket.IO Setup
