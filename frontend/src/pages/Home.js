@@ -58,7 +58,7 @@ const Home = () => {
                                         COPY & PASTE EXACTLY (CASE SENSITIVE)
                                     </p>
                                     <p style={{ fontSize: "16px", color: "#333", margin: "5px 0" }}>
-                                        <strong>Room ID:</strong> New Room
+                                        <strong>Room ID:</strong> NewRoom
                                     </p>
                                     <p style={{ fontSize: "16px", color: "#333", margin: "5px 0" }}>
                                         <strong>Room Password:</strong> 1234
