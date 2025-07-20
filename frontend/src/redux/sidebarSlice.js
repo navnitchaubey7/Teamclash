@@ -15,6 +15,7 @@ const sidebarSlice = createSlice({
     showCreatRoom: (state) => {
       state.createRoom = !state.createRoom;
       state.enterRoom = false;
+      state.isVisible = false;
     },
     hideSidebar: (state) => {
       state.isVisible = false;
@@ -22,6 +23,7 @@ const sidebarSlice = createSlice({
     showEnterRoom: (state) => {
       state.enterRoom = !state.enterRoom;
       state.createRoom = false;
+      state.isVisible = false;
     }
   },
 });
