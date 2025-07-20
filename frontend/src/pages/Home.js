@@ -18,24 +18,28 @@ const Home = () => {
         setShowRegister(!showRegister)
     }
     return (
-        <div className="bg-wrapper">
-            <Container className="content-inside">
-                <Row>
-                    <h1 className="home_header"><strong>Welcome to the Battle Ground</strong></h1>
-                </Row>
-                <Row className="justify-content-end">
-                    <Button className="show_login_button" onClick={handleShowLogin}>Login</Button>&nbsp;
-                    <Button className="show_login_button" onClick={handleShowRegister}>Register</Button>
-                </Row>
+        <>
+            <div className="bg-wrapper">
+                <Container className="content-inside">
+                    <Row>
+                        <h1 className="home_header"><strong>Welcome to the Battle </strong></h1>
+                    </Row>
+                    <Row className="justify-content-end">
+                        <Button className="show_login_button" onClick={handleShowLogin}>Login</Button>&nbsp;
+                        <Button className="show_login_button" onClick={handleShowRegister}>Register</Button>
+                    </Row>
 
-                <Row>&nbsp;</Row>
-                <Row>&nbsp;</Row>
-                <Row>&nbsp;</Row>
-                {showLogin && <div className='login_header' ><LoginPage /></div>}
-                {showRegister && <div className='register_header' ><RegisterPage /></div>}
-            </Container>
-            <Footer />
-        </div>
+                    <Row>&nbsp;</Row>
+                    <Row>&nbsp;</Row>
+                    <Row>&nbsp;</Row>
+                    {showLogin && <Row className='login_header'><LoginPage /></Row>}
+
+                    {showRegister && <div className='register_header' ><RegisterPage /></div>}
+                </Container>
+                <Footer />
+            </div>
+            
+        </>
     );
 };
 

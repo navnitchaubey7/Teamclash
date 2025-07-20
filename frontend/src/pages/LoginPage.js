@@ -94,98 +94,95 @@ function LoginPage() {
     window.location.href = Common.loginviagoogle;
   };
   return (
-    <div>
-      <Container>
-        {scrMode === "" ?
-          <div className="login-box">
+    <Container>
+      {scrMode === "" ?
+        <div className="login-box">
+          <Row className="justify-content-center mb-3">
+            <Col md={6} sm={12} className="text-center">
+              <h2>Login</h2>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mb-3">
+            <Col md={6}>
+              <input name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}
+                required className="form-control"
+              />
+            </Col>
+          </Row>
+
+          <Row className="justify-content-center mb-3">
+            <Col md={6}>
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                className="form-control"
+              />
+            </Col>
+          </Row>
+          <Row md={6} className="justify-content-center text-center">
+            <button onClick={() => handleSubmit()} className="btn btn-primary me-3">Login</button>
+            <button className="btn btn-danger" onClick={handleGoogleLogin}>
+              Sign in with Google
+            </button>
+
+
+            <Button className='btn btn-primary' size='sm' onClick={() => handleforgetPassword()}>Forget Password</Button>
+          </Row>
+        </div>
+        : null}
+      {scrMode === "forget-password" &&
+        <div className="login-box">
+          <Row className="justify-content-center mb-3">
+            <Col md={6} className="text-center">
+              <h2>Login</h2>
+            </Col>
+          </Row>
+          <Row className="justify-content-center mb-3">
+            <Col md={6}>
+              <input name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}
+                required className="form-control"
+              />
+            </Col>
+          </Row>
+          {showForgetPassbox &&
             <Row className="justify-content-center mb-3">
-              <Col md={6} className="text-center">
-                <h2>Login</h2>
+              <Col md={6} sm={12}>
+                <input name="otp" type="otp" placeholder="OTP" onChange={(e) => setOtp(e.target.value)} value={otp}
+                  required className="form-control"
+                />
               </Col>
-            </Row>
+            </Row>}
+          {showOldNewPass && <>
             <Row className="justify-content-center mb-3">
               <Col md={6}>
-                <input name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}
+                <input name="newpass" type="text" placeholder="New password" onChange={(e) => setNewPass(e.target.value)} value={newPass}
                   required className="form-control"
                 />
               </Col>
             </Row>
-
             <Row className="justify-content-center mb-3">
               <Col md={6}>
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Password"
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                  className="form-control"
-                />
-              </Col>
-            </Row>
-            <Row md={6} className="justify-content-center text-center">
-              <button onClick={() => handleSubmit()} className="btn btn-primary me-3">Login</button>
-              <button className="btn btn-danger" onClick={handleGoogleLogin}>
-                Sign in with Google
-              </button>
-
-
-              <Button className='btn btn-primary' size='sm' onClick={() => handleforgetPassword()}>Forget Password</Button>
-            </Row>
-          </div>
-          : null}
-        {scrMode === "forget-password" &&
-          <div className="login-box">
-            <Row className="justify-content-center mb-3">
-              <Col md={6} className="text-center">
-                <h2>Login</h2>
-              </Col>
-            </Row>
-            <Row className="justify-content-center mb-3">
-              <Col md={6}>
-                <input name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} value={email}
+                <input name="reenterpass" type="text" placeholder="Re enter password" onChange={(e) => setRenteredNewpass(e.target.value)} value={renteredNewpass}
                   required className="form-control"
                 />
               </Col>
             </Row>
-            {showForgetPassbox &&
-              <Row className="justify-content-center mb-3">
-                <Col md={6}>
-                  <input name="otp" type="otp" placeholder="OTP" onChange={(e) => setOtp(e.target.value)} value={otp}
-                    required className="form-control"
-                  />
-                </Col>
-              </Row>}
-            {showOldNewPass && <>
-              <Row className="justify-content-center mb-3">
-                <Col md={6}>
-                  <input name="newpass" type="text" placeholder="New password" onChange={(e) => setNewPass(e.target.value)} value={newPass}
-                    required className="form-control"
-                  />
-                </Col>
-              </Row>
-              <Row className="justify-content-center mb-3">
-                <Col md={6}>
-                  <input name="reenterpass" type="text" placeholder="Re enter password" onChange={(e) => setRenteredNewpass(e.target.value)} value={renteredNewpass}
-                    required className="form-control"
-                  />
-                </Col>
-              </Row>
-            </>}
-            <Row md={6} className="justify-content-center text-center">
-              <button onClick={() => handleBackButton("")} className="btn btn-primary me-3">Back</button>
-              {!showForgetPassbox &&
-                <Button className='btn btn-primary' size='sm' onClick={() => handleForgetSubmit()}>Submit</Button>}
-              {showForgetPassbox && !showOldNewPass &&
-                <Button className='btn btn-primary' size='sm' onClick={() => handleVerifyOTP()}>Submit</Button>}
-              {showOldNewPass &&
-                <Button className='btn btn-primary' size='sm' onClick={() => handleFinalsave()}>Change password</Button>}
-            </Row>
-          </div>}
+          </>}
+          <Row md={6} className="justify-content-center text-center">
+            <button onClick={() => handleBackButton("")} className="btn btn-danger me-3">Back</button>
+            {!showForgetPassbox &&
+              <Button className='btn btn-primary' size='sm' onClick={() => handleForgetSubmit()}>Submit</Button>}
+            {showForgetPassbox && !showOldNewPass &&
+              <Button className='btn btn-primary' size='sm' onClick={() => handleVerifyOTP()}>Submit</Button>}
+            {showOldNewPass &&
+              <Button className='btn btn-primary' size='sm' onClick={() => handleFinalsave()}>Change password</Button>}
+          </Row>
+        </div>}
 
-      </Container>
-
-    </div>
+    </Container>
   );
 }
 
