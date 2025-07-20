@@ -22,7 +22,11 @@ const Home = () => {
             <div className="bg-wrapper">
                 <Container className="content-inside">
                     <Row>
-                        <h1 className="home_header"><strong>Welcome to the BattleGround</strong></h1>
+                        <h2 className="home_header display-5 fw-bold text-center">
+                            Welcome to Teamclash
+                        </h2>
+                        <p className="lead text-center tagline">Plan. Chat. Execute.</p>
+
                     </Row>
                     <Row className="justify-content-end">
                         <Button className="show_login_button" onClick={handleShowLogin}>Login</Button>&nbsp;
@@ -30,7 +34,7 @@ const Home = () => {
                     </Row>
                     {(!showLogin && !showRegister) ?
                         <Row className="justify-content-center mt-4">
-                            <Col className="col-md-4 col-10">
+                            <Col className="col-md-4 col-8">
                                 <div
                                     style={{
                                         background: "linear-gradient(135deg, #e3f2fd, #ffffff)",
@@ -58,17 +62,15 @@ const Home = () => {
                                         COPY & PASTE EXACTLY (CASE SENSITIVE)
                                     </p>
                                     <p style={{ fontSize: "16px", color: "#333", margin: "5px 0" }}>
-                                        <strong>Room ID:</strong> New Room
+                                        <strong>Room ID:</strong> NewRoom
                                     </p>
                                     <p style={{ fontSize: "16px", color: "#333", margin: "5px 0" }}>
                                         <strong>Room Password:</strong> 1234
                                     </p>
                                 </div>
                             </Col>
-                        </Row> : null}
-
-                    <Row>&nbsp;</Row>
-                    <Row>&nbsp;</Row>
+                        </Row>
+                        : null}
                     <Row>&nbsp;</Row>
                     {showLogin && <Row className='login_header'><LoginPage /></Row>}
 
