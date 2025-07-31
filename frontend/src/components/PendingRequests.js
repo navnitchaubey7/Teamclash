@@ -21,7 +21,7 @@ const PendingRequests = ({ userId }) => {
 
   const handleAccept = async (requestId) => {
     try {
-      await axios.patch(Common.acceptFriendRequest`/${requestId}`);
+      await axios.patch(Common.acceptFriendRequest + `/${requestId}`);
       alert("Accepted ✅");
       fetchRequests(); // Refresh list after accepting
     } catch (err) {
